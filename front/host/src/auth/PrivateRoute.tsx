@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
-import { Redirect, Route } from 'react-router-dom';
+import {Navigate, Route} from 'react-router-dom';
+// @ts-ignore
 import { AuthContext, AuthState } from 'remoteAuth/AuthProvider';
 
 export interface PrivateRouteProps {
@@ -18,7 +19,7 @@ export const PrivateRoute: React.FC<PrivateRouteProps> = ({ component: Component
                 // @ts-ignore
                 return <Component {...props} />;
             }
-            return <Redirect to={{ pathname: '/login' }}/>
+            return <Navigate to={{ pathname: '/login' }}/>
         }}/>
     );
 }
