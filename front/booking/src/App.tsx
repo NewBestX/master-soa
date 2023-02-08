@@ -1,12 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-import "./index.css";
-import SeatsTable from "./seats/SeatsTable";
+import SeatsElement from "./SeatsElement";
 
 const App = () => (
-  <div className="container">
-    <SeatsTable />
-  </div>
+    <div className="container">
+        <SeatsElement token="test" room="1" user="test"/>
+    </div>
 );
-ReactDOM.render(<App />, document.getElementById("app"));
+ReactDOM.render(<App/>, document.getElementById("app"));

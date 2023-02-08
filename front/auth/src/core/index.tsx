@@ -1,7 +1,7 @@
-export const baseUrl = 'localhost:8000';
+export const baseUrl = 'localhost:3001';
 
 export const getLogger: (tag: string) => (...args: any) => void =
-    tag => (...args) => console.log(tag, ...args);
+    tag => (...args) => console.log("auth: " + tag, ...args);
 
 const log = getLogger('api');
 
