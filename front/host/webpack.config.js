@@ -49,7 +49,8 @@ module.exports = {
       name: "host",
       filename: "remoteEntry.js",
       remotes: {
-        remoteAuth: "auth@http://localhost:8000/remoteEntry.js"
+        remoteSeats: "booking@http://localhost:8001/remoteEntry.js",
+        remoteAuth: "auth@http://localhost:8000/remoteEntry.js",
       },
       exposes: {},
       shared: {

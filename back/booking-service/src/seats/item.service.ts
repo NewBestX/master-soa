@@ -14,8 +14,8 @@ export class ItemService {
     }
 
     findOne(room: string, id: string): Item {
-        const it = this.db.getAll().filter(x => x.room === room && x.id === id);
-        if (!it)
+        const it = this.db.getAll().filter(x => x.room == room && x.id == id);
+        if (!it || it.length == 0)
             return null;
         return it[0];
     }

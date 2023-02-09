@@ -1,13 +1,13 @@
-.container {
+.containerSeats {
     background-color: #fafafa;
     padding: 1rem;
     border-radius: 10px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
     font-size: 2rem;
-    max-width: fit-content;
+    width: 1000px;
 }
 
-.btn-primary {
+.btn-primary-seats {
     background-color: #0F7173;
     border-color: #0F7173;
     font-size: 1rem;
@@ -16,16 +16,16 @@
     font-weight: bold;
 }
 
-.btn-primary:hover,
-.btn-primary:active,
-.btn-primary:focus {
+.btn-primary-seats:hover,
+.btn-primary-seats:active,
+.btn-primary-seats:focus {
     background-color: #35a6a8;
     border-color: #35a6a8;
     box-shadow: none;
     outline: none;
 }
 
-.btn-container {
+.btn-container-seats {
     text-align: center;
 }
 

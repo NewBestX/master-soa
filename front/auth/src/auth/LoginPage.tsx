@@ -3,6 +3,7 @@ import {useState} from 'react';
 import {Button, Form, FormGroup, Label, Input, Container, Row, Col} from 'reactstrap';
 import {AuthContext} from './AuthProvider';
 import {getLogger} from '../core';
+import {Navigate} from "react-router-dom";
 
 const log = getLogger('Login');
 
@@ -21,6 +22,10 @@ const LoginPage = () => {
         login?.(username, password);
     };
     log('render');
+
+    if (isAuthenticated) {
+        return <Navigate to='/'/>
+    }
 
     return (
         <Container className="mt-5">

@@ -8,14 +8,18 @@ import LoginPage from "remoteAuth/LoginPage";
 // @ts-ignore
 import AuthContext from 'remoteAuth/AuthProvider';
 import {BrowserRouter, Navigate, Route, Router, Routes} from "react-router-dom";
+import {PrivateRoute} from "./auth/PrivateRoute";
+import MainView from "./mainView/MainView";
 
 
 const App = () => (
     <AuthContext>
         <BrowserRouter>
             <Routes>
+                <Route path="/" element={<PrivateRoute/>}>
+                    <Route path="/" element={<MainView/>}/>
+                </Route>
                 <Route path="/login" element={<LoginPage/>}/>
-                <Route path="/" element={<Navigate replace to="/login"/>}/>
             </Routes>
         </BrowserRouter>
     </AuthContext>

@@ -4,7 +4,7 @@ import ReactDOM from "react-dom";
 import SeatsElement from "./SeatsElement";
 
 const App = () => (
-    <div className="container">
+    <div className="containerSeats">
         <SeatsElement token="test" room="1" user="test"/>
     </div>
 );

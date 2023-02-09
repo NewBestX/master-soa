@@ -5,25 +5,25 @@ import {SeatProps} from './SeatProps';
 const itemUrl = `http://${baseUrl}/api/seat`;
 
 export const getItemsApi: (token: string, room: string) => Promise<SeatProps[]> = (token, room) => {
-    return withLogs(axios.get(`${itemUrl}/${room}`, authConfig(token)), 'getItems');
+    return withLogs(axios.get(`${itemUrl}/${room}`, authConfig(token)), 'getItemsApi');
 }
 
 export const createItemApi: (token: string, room: string, item: SeatProps) => Promise<SeatProps[]> = (token, room, item) => {
-    return withLogs(axios.post(`${itemUrl}/${room}`, item, authConfig(token)), 'createItem');
+    return withLogs(axios.post(`${itemUrl}`, {...item, room}, authConfig(token)), 'createItemApi');
 }
 
 export const deleteItemApi: (token: string, room: string, item: SeatProps) => Promise<boolean> = (token, room, item) => {
-    return withLogs(axios.delete(`${itemUrl}/${room}/${item.id}`, authConfig(token)), 'deleteItem');
+    return withLogs(axios.delete(`${itemUrl}/${room}/${item.id}`, authConfig(token)), 'deleteItemApi');
 }
 
 interface MessageData {
-    type: string;
+    event: string;
 }
 
 const log = getLogger('ws');
 
 export const newWebSocket = (token: string, onMessage: (data: MessageData) => void) => {
-    const ws = new WebSocket(`ws://${baseUrl}`);
+    const ws = new WebSocket(`ws://localhost:5000`);
     ws.onopen = () => {
         log('web socket onopen');
         ws.send(JSON.stringify({type: 'authorization', payload: {token}}));

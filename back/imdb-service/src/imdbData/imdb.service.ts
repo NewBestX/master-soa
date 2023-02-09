@@ -9,7 +9,7 @@ const config = {
 };
 
 @Injectable()
-export class ItemService {
+export class ImdbService {
     constructor() {
     }
 

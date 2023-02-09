@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { ExternalApiModule } from './todo/externalApi.module';
+import { ExternalApiModule } from './imdbData/externalApi.module';
 import { CoreModule } from './core/core.module';
 import { InMemoryDBModule } from '@nestjs-addons/in-memory-db';
 

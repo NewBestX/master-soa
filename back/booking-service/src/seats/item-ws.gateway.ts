@@ -1,7 +1,7 @@
 import { WebSocketGateway, WebSocketServer } from '@nestjs/websockets';
 import { OPEN, Server } from 'ws';
 
-@WebSocketGateway(8080)
+@WebSocketGateway(5000)
 export class ItemWsGateway {
   @WebSocketServer()
   server: Server;

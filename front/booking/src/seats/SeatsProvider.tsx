@@ -129,9 +129,10 @@ export const SeatsProvider: React.FC<ItemProviderProps> = ({token, room, childre
                 log('fetchItems started');
                 dispatch({type: FETCH_ITEMS_STARTED});
                 const items = await getItemsApi(token, room);
-                log('fetchItems succeeded');
+                log('fetchItems succeeded, received ' + items.length + ' seats');
+                console.log(JSON.stringify(items))
                 if (!canceled) {
-                    dispatch({type: FETCH_ITEMS_SUCCEEDED, payload: {items}});
+                    dispatch({type: FETCH_ITEMS_SUCCEEDED, payload: {items: items}});
                 }
             } catch (error) {
                 log('fetchItems failed');
@@ -175,9 +176,9 @@ export const SeatsProvider: React.FC<ItemProviderProps> = ({token, room, childre
                 if (canceled) {
                     return;
                 }
-                const {type} = message;
-                log(`ws message, item ${type}`);
-                if (type === 'created' || type === 'deleted') {
+                const {event} = message;
+                log(`ws message, item ${event}`);
+                if (event === 'created' || event === 'deleted') {
                     dispatch({type: OUTSIDE_EVENT});
                 }
             });
