@@ -2,8 +2,7 @@ import {Module} from '@nestjs/common';
 import {ItemController} from './item.controller';
 import {ItemService} from './item.service';
 import {InMemoryDBModule} from '@nestjs-addons/in-memory-db';
-import {ItemWsGateway} from './item-ws.gateway';
-import {ClientsModule, Transport} from '@nestjs/microservices';
+import {ClientsModule, Transport} from "@nestjs/microservices";
 
 @Module({
     imports: [
@@ -15,10 +14,18 @@ import {ClientsModule, Transport} from '@nestjs/microservices';
                 host: 'localhost',
                 port: 4000
             }
+        }]),
+        ClientsModule.register([{
+            name: 'IMDB_CLIENT',
+            transport: Transport.TCP,
+            options: {
+                host: 'localhost',
+                port: 4001
+            }
         }])
     ],
     controllers: [ItemController],
-    providers: [ItemService, ItemWsGateway]
+    providers: [ItemService]
 })
-export class TodoModule {
+export class MovieModule {
 }
