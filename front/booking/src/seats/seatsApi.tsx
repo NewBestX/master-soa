@@ -23,7 +23,7 @@ interface MessageData {
 const log = getLogger('ws');
 
 export const newWebSocket = (token: string, onMessage: (data: MessageData) => void) => {
-    const ws = new WebSocket(`ws://localhost:5000`);
+    const ws = new WebSocket(`ws://172.18.16.1:5000`);
     ws.onopen = () => {
         log('web socket onopen');
         ws.send(JSON.stringify({type: 'authorization', payload: {token}}));

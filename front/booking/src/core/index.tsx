@@ -1,4 +1,4 @@
-export const baseUrl = 'localhost:3002';
+export const baseUrl = '172.18.16.1:3002';
 
 export const getLogger: (tag: string) => (...args: any) => void =
     tag => (...args) => console.log("booking: " + tag, ...args);

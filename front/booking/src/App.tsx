@@ -1,11 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-import SeatsElement from "./SeatsElement";
+import "./style.css";
 
 const App = () => (
-    <div className="containerSeats">
-        <SeatsElement token="test" room="1" user="test"/>
-    </div>
+    <div>BOOKING APP</div>
 );
 ReactDOM.render(<App/>, document.getElementById("app"));

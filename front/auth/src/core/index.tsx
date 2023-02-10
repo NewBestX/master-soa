@@ -1,4 +1,4 @@
-export const baseUrl = 'localhost:3001';
+export const baseUrl = '172.18.16.1:3001';
 
 export const getLogger: (tag: string) => (...args: any) => void =
     tag => (...args) => console.log("auth: " + tag, ...args);
