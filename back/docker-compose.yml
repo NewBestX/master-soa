@@ -2,25 +2,45 @@ version: "1"
 services:
   auth-service:
     build: ./auth-service
+    container_name: auth-service
     ports:
       - 3001:3001
     environment:
       PROVIDER_HOST: provider
+    networks:
+      servicesNetwork:
+        ipv4_address: 172.20.0.14
   booking-service:
     build: ./booking-service
+    container_name: booking-service
     ports:
       - 3002:3002
       - 5000:5000
     environment:
       PROVIDER_HOST: provider
+    networks:
+      servicesNetwork:
+        ipv4_address: 172.20.0.12
   imdb-service:
     build: ./imdb-service
+    container_name: imdb-service
     environment:
       PROVIDER_HOST: provider
+    networks:
+      servicesNetwork:
+        ipv4_address: 172.20.0.11
   movie-service:
     build: ./movie-service
+    container_name: movie-service
     ports:
       - 3000:3000
     environment:
       PROVIDER_HOST: provider
-
+    networks:
+      servicesNetwork:
+        ipv4_address: 172.20.0.10
+networks:
+  servicesNetwork:
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16

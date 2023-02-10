@@ -11,7 +11,7 @@ import {ClientsModule, Transport} from "@nestjs/microservices";
             name: 'AUTH_CLIENT',
             transport: Transport.TCP,
             options: {
-                host: '0.0.0.0',
+                host: 'auth-service',
                 port: 4000
             }
         }]),
@@ -19,7 +19,7 @@ import {ClientsModule, Transport} from "@nestjs/microservices";
             name: 'IMDB_CLIENT',
             transport: Transport.TCP,
             options: {
-                host: '0.0.0.0',
+                host: 'imdb-service',
                 port: 4001
             }
         }])

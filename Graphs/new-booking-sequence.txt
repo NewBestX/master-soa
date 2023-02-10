@@ -1,0 +1,9 @@
+sequenceDiagram
+    USER-->>Booking: select seat
+    USER-->>+Booking: click Book Seat button
+    Booking->>+booking-service: POST@api/seat
+    booking-service->>+auth-service: TCP - checkReq
+    auth-service->>-booking-service: valid response
+    booking-service->>booking-service: save booking in DB
+    booking-service->>-Booking: successful response
+    Booking-->>-USER: new seats status

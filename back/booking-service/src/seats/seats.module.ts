@@ -12,7 +12,7 @@ import {ClientsModule, Transport} from '@nestjs/microservices';
             name: 'AUTH_CLIENT',
             transport: Transport.TCP,
             options: {
-                host: 'localhost',
+                host: '172.20.0.13',
                 port: 4000
             }
         }])

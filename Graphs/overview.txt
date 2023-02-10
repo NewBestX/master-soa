@@ -1,0 +1,9 @@
+graph TD
+    A[fa:fa-display host] ==>|remotes\nAuthProvider, LoginPage| B[fa:fa-display auth]
+    A ==>|remotes\nSeatsElement| C[fa:fa-display booking]
+    B --->|api/login| D(fa:fa-server auth-service)
+    C -->|api/seat| E(fa:fa-server booking-service)
+    A --->|api/movie| F(fa:fa-server movie-service)
+    F -->|TCP| G(fa:fa-server imdb-service)
+    F -->|TCP| D
+    E -->|TCP| D

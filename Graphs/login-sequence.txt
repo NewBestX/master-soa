@@ -1,0 +1,29 @@
+sequenceDiagram
+    USER-->>Host: Load application
+    Host->>Auth: load remote components AuthProvider, LoginPage
+    Auth-->>USER: Login Page
+
+    USER-->>+Auth: click login
+    Auth->>+auth-service: POST@api/login
+    auth-service->>-Auth: login response
+    Auth->>-Host: new auth state
+    Host->>+Host: loggedIn = true -> load MainView
+
+    Host->>+movie-service: GET@api/movie
+    movie-service->>+auth-service: TCP - checkReq
+    auth-service->>-movie-service: valid response
+    movie-service->>+imdb-service: TCP - get rating
+    imdb-service-->>+ExternalAPI: api@getMovieData
+    ExternalAPI-->>-imdb-service: movie data response
+    imdb-service->>-movie-service: rating
+    movie-service->>-Host: current movie response
+    Host-->>-USER: MainView
+
+    Host->>+Booking: load remote component SeatsElement for current movie
+    Booking-->booking-service: open WebSocket
+    Booking->>+booking-service: GET@api/seats
+    booking-service->>+auth-service: TCP - checkReq
+    auth-service->>-booking-service: valid response
+    booking-service->>-Booking: seats
+    Booking-->>USER: Seats Element
+
