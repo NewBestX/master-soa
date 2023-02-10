@@ -11,7 +11,7 @@ async function bootstrap() {
     app.connectMicroservice({
         transport: Transport.TCP,
         options: {
-            host: 'localhost',
+            host: 'auth-service',
             port: 4000
         }
     });

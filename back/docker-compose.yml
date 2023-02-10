@@ -3,6 +3,7 @@ services:
   auth-service:
     build: ./auth-service
     container_name: auth-service
+    hostname: auth-service
     ports:
       - 3001:3001
     environment:
@@ -13,6 +14,7 @@ services:
   booking-service:
     build: ./booking-service
     container_name: booking-service
+    hostname: booking-service
     ports:
       - 3002:3002
       - 5000:5000
@@ -24,6 +26,7 @@ services:
   imdb-service:
     build: ./imdb-service
     container_name: imdb-service
+    hostname: imdb-service
     environment:
       PROVIDER_HOST: provider
     networks:
@@ -32,6 +35,7 @@ services:
   movie-service:
     build: ./movie-service
     container_name: movie-service
+    hostname: movie-service
     ports:
       - 3000:3000
     environment:
